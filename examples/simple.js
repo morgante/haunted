@@ -18,9 +18,9 @@ haunted = new Haunted(
 	// the tester function, which actually tests a certain expectation
 	function(expectation) {
     	if (expectation.occurred != expectation.expected) {
-    		console.log(util.format('%s was called %d times (expected %d) on %s', expectation.uri, expectation.occurred, expectation.expected, expectation.page.url));
+    		console.log(util.format('%s expected %d, received %d on %s', expectation.name, expectation.expected, expectation.occurred, expectation.page.url));
     	} else {
-    		console.log(util.format('%s was called on %s', expectation.uri, expectation.page.url));
+    		console.log(util.format('passed %s on %s', expectation.name, expectation.page.url));
     	}
     }
 );

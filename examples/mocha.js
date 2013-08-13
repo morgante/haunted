@@ -18,8 +18,8 @@ haunted = new Haunted(
 	
 	// the tester function, which actually tests a certain expectation
 	function(expectation) {
-		it(expectation.uri, function() {
-			expectation.expected.should.equal(expectation.occurred);
+		it(expectation.name, function() {
+			expectation.occurred.should.equal(expectation.expected);
 		});
 	}
 );
