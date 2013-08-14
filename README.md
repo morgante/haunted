@@ -138,7 +138,7 @@ An array containing any actions to take on the page. Each action is represented 
 An object containing the [queries](#queries-optional), as defined elsewhere in your definition, which this page should check. The key is the query and the value is the amount we expect that query to be updated by.
 
 ## Datastores
-Haunted supports tracking that values are properly incremented in your datastore for analytics calls. To use a datastore, you must define [storage](#storage-required) and [queries](#queries-optional) in your configuration, and activate the datastore. Currently only a MongoDB datastore driver is included with Haunted, which can be activated thusly:
+Haunted supports tracking that values are properly incremented in your datastore for analytics calls. To use a datastore, you must define [storage](#storage-optional) and [queries](#queries-optional) in your configuration, and activate the datastore. Currently only a MongoDB datastore driver is included with Haunted, which can be activated thusly:
 
 ``` javascript
 haunted = new Haunted(definition, describer, tester);
