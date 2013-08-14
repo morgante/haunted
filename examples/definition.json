@@ -1,15 +1,44 @@
 {
-	"base": "http://www.businessinsider.com",
+  "base": "http://businessinsider.com",
+	"storage": "mongodb://localhost/test",
+	"queries": {
+		"page.hour": {
+			"collection": "analytics.page.hour",
+			"query": {"name": "<%= relative %>", "date": "<%= hour %>"},
+			"field": "n",
+			"sort": {"date": -1}
+		}
+	},
 	"sets": {
 		"google": [
 			"http://www.google-analytics.com/__utm.gif"
+		],
+		"internal": [
+			"track.gif"
 		]
 	},
 	"pages": [
 		{
+			"uri": "/the-7-awesome-types-of-slideshows-2010-11",
+			"actions": [
+			  {"click": "a.sl-start"}
+			],
+			"sets": {
+			  "google": 2,
+			  "internal": 2
+			},
+			"queries": {
+				"page.hour": 1
+			}
+		},
+		{
 			"uri": "/tausche-vs-kopecki-2013-8",
 			"sets": {
-			  "google": 1
+			  "google": 1,
+			  "internal": 1
+			},
+			"queries": {
+				"page.hour": 1
 			}
 		}
 	]
