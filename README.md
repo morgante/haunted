@@ -57,7 +57,7 @@ If your site is behind basic HTTP authentication, you can pass a username and pa
 ```
 
 ### storage (optional)
-This contains configuration information which is passed to the [datastore](#Datastores).
+This contains configuration information which is passed to the [datastore](#datastores).
 
 ### queries (optional)
 An object of all queries which your pages would like to check. The key is the query name and the value is an object containing query properties which are passed along to the datastore.
@@ -126,19 +126,19 @@ The pages property contains an array of pages to be checked, each of which has a
 ```
 
 #### uri (required)
-The location of the page, relative to [the base url](#base). Ex. ```"/blog"```
+The location of the page, relative to [the base url](#base-required). Ex. ```"/blog"```
 
 #### sets (required)
-An object containing the [sets](#sets), as defined elsewhere in your definition, which this page should load. The key is the set and the value is the number of times it should be referenced. The above example will expect each URL in ```google``` set to be called once and each URL in the ```internal``` set twice:
+An object containing the [sets](#sets-required), as defined elsewhere in your definition, which this page should load. The key is the set and the value is the number of times it should be referenced. The above example will expect each URL in ```google``` set to be called once and each URL in the ```internal``` set twice:
 
 #### actions (optional)
 An array containing any actions to take on the page. Each action is represented as an object with the key being the event/action and the value being the target. Currently only the ```click``` ation is supported.
 
 #### queries (optional)
-An object containing the [queries](#queries), as defined elsewhere in your definition, which this page should check. The key is the query and the value is the amount we expect that query to be updated by.
+An object containing the [queries](#queries-optional), as defined elsewhere in your definition, which this page should check. The key is the query and the value is the amount we expect that query to be updated by.
 
 ## Datastores
-Haunted supports tracking that values are properly incremented in your datastore for analytics calls. To use a datastore, you must define [storage](#storage) and [queries](#queries) in your configuration, and activate the datastore. Currently only a MongoDB datastore driver is included with Haunted, which can be activated thusly:
+Haunted supports tracking that values are properly incremented in your datastore for analytics calls. To use a datastore, you must define [storage](#storage-required) and [queries](#queries-optional) in your configuration, and activate the datastore. Currently only a MongoDB datastore driver is included with Haunted, which can be activated thusly:
 
 ``` javascript
 haunted = new Haunted(definition, describer, tester);
