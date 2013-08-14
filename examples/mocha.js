@@ -1,5 +1,6 @@
 var Haunted = require('../lib/haunted'),
-    util    = require('util')
+    util    = require('util'),
+    should  = require('should')
 
 var definition = require('./definition.json');
 
