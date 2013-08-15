@@ -26,7 +26,7 @@ haunted.run();
 ```
 
 ### definition
-The definition argument should be an object configuring your analytics definition, see [configuration](#configuation).
+The definition argument should be an object configuring your analytics definition, see [configuration](#configuration).
 
 ### describer(page, setup, suite)
 The describer argument should be a function which, when called, creates a test suite for a particular page. It is passed 3 arguments:
