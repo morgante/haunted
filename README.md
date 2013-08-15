@@ -25,6 +25,41 @@ haunted = new Haunted(definition, describer, tester);
 haunted.run();
 ```
 
+### definition
+The definition argument should be an object configuring your analytics definition, see [configuration](#configuation).
+
+### describer(page, setup, suite)
+The describer argument should be a function which, when called, creates a test suite for a particular page. It is passed 3 arguments:
+* ```page```: an object representing the page currently being tested
+* ```setup(done)```: a function which, when called, sets up the test suite (by loading the page in a headless browser); it's argument is a function to be called when the setup is done
+* ```suite(this)```: a function which, when called, executes the test suite; it's argument should be the test context.
+
+For example, this is a simple describer function:
+``` javascript
+function(page, setup, suite) {
+	setup(function() {
+		suite(this);
+	});
+}
+```
+
+### tester(expectation)
+The tester argument should be a function which, when called, actually tests an expectation. It's one argument is an object with three properties:
+* ```expectation.name```: the name of the expectation (ex. the URL of a resource which was expected)
+* ```expectation.occurred```: the number of instances which actually occurred
+* ```expectation.expected```: the number of instances which was expected
+
+For example, here is a simple tester which outputs to the console:
+``` javascript
+function(expectation) {
+	if (expectation.occurred != expectation.expected) {
+		console.log(util.format('%s expected %d, received %d on %s', expectation.name, expectation.expected, expectation.occurred, expectation.page.url));
+	} else {
+		console.log(util.format('passed %s on %s', expectation.name, expectation.page.url));
+	}
+}
+```
+
 ## Examples
 Two examples are included, a simple one using console.log and an example using the [Mocha test framework](http://visionmedia.github.io/mocha/). To run the simple example, just execute this command: ```node examples/simple.js```
 
