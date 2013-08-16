@@ -127,6 +127,9 @@ The name of the field, in the fetched document, where the changing value can be 
 #### sort (optional)
 An object parameter to pass for sorting the collection query, useful in the MongoDB datastore.
 
+### wait (optional)
+The number of milliseconds to wait before final (post-visit) check of datastore. Useful if you have delayed writes.
+
 ### sets (required)
 In Haunted, a set is an array of URLs which are expected. You can define multiple sets (each of which has multiple URLs), and each page can reference multiple sets. Note that URLs will be naively partially matched, such that if a requested resource contains one of these URLs as a substring, it will be considered a match. For example:
 ``` javascript
