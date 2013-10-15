@@ -1,7 +1,7 @@
 {
 	"name": "haunted",
 	"description": "A node module for validating site analytics",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"keywords": [
         "node",
         "analytics",
